@@ -1,0 +1,37 @@
+# Folder Structure
+k8s-wordpress-mysql-aws/
+├── global_main.tf           # Main entry point to configure and reference modules
+├── global_outputs.tf        # Outputs from the root module
+├── global_variables.tf      # Variables used across the root module
+├── provider.tf              # Provider configuration (e.g., AWS)
+├── data-source.tf           # Data sources for fetching VPC, subnets, etc.
+├── modules/                 # Directory for reusable Terraform modules
+│   ├── kubeadm/             # Module for Kubeadm setup
+│   │   ├── main.tf          # Resources for Kubeadm deployment
+│   │   ├── variables.tf     # Variables for the Kubeadm module
+│   │   ├── outputs.tf       # Outputs from the Kubeadm module
+│   │   ├── scripts/         # Scripts for setting up Kubernetes cluster
+│   │   │   ├── install-k8s-Master.sh  # Script for setting up master node
+│   │   │   ├── install-k8s-Node1.sh   # Script for setting up worker node 1
+│   │   │   ├── install-k8s-Node2.sh   # Script for setting up worker node 2
+│   ├── mysql/               # Module for MySQL setup
+│   │   ├── main.tf          # Resources for MySQL deployment
+│   │   ├── variables.tf     # Variables for the MySQL module
+│   │   ├── outputs.tf       # Outputs from the MySQL module
+│   │   ├── k8s-yaml/        # Directory for MySQL-related Kubernetes YAML files
+│   │   │   ├── Deployment.yaml
+│   │   │   ├── MySQL-secret.yaml
+│   │   │   ├── PVC.yaml
+│   │   │   ├── SC.yaml
+│   │   ├── scripts/         # Scripts for MySQL automation
+│   │   │   ├── MySQL_Script.sh  # Script to deploy MySQL automatically
+│   ├── security_groups/     # Module for security group configuration
+│   │   ├── main.tf          # Resources for security group setup
+│   │   ├── variables.tf     # Variables for the Security Groups module
+│   │   ├── outputs.tf       # Outputs from the Security Groups module
+│   ├── wordpress/           # Module for WordPress setup
+│   │   ├── main.tf          # Resources for WordPress deployment
+│   │   ├── variables.tf     # Variables for the WordPress module
+│   │   ├── outputs.tf       # Outputs from the WordPress module
+├── .terraform/              # Terraform internal directory (generated after `init`)
+

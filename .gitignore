@@ -1,0 +1,24 @@
+# ------------------------------------------
+# 🏗️ Terraform Generated Files (Do Not Track)
+# ------------------------------------------
+# Terraform state files store infrastructure state; they should never be committed
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform's working directory that contains cached modules and providers
+.terraform/
+
+# Terraform lock file that records provider versions (optional to ignore)
+.terraform.lock.hcl
+
+# ------------------------------------------
+# 🔐 SSH Keys & Sensitive Credentials (Security Best Practices)
+# ------------------------------------------
+# Private SSH keys (used for authentication)
+*.pem
+
+# ------------------------------------------
+# 🔒 Environment Variables (Used for AWS & Other Secrets)
+# ------------------------------------------
+# The .env file contains sensitive API keys and credentials; do not commit it
+modules/kubeadm/scripts/.env
